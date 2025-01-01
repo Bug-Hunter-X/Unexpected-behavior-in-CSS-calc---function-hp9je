@@ -1,0 +1,25 @@
+/*Solution: Using parentheses to enforce correct order of operations and ensuring unit consistency*/
+
+.container {
+  width: calc(100% - (20px + 10px)); /* Correct calculation*/
+  height: calc(50vh - 2em); /* Using compatible units */
+}
+
+/* Alternative Solution: Avoid using percentages if the calculation is likely to be complex */
+
+.container {
+  width: 90%; /* Using a simpler percentage instead of calculation */
+}
+
+/* Solution for incompatible unit type errors: */
+.element {
+  width: calc(100vw - 100px); /*Using compatible units of viewport width and pixels*/
+}
+
+/* Solution for unexpected behavior when a value within calc() doesn't resolve to a number: */
+.element {
+  width: calc(100% - var(--my-width)); /*Ensuring that var(--my-width) evaluates to a valid numeric value with appropriate units*/
+}
+:root{
+--my-width: 10px;
+}
